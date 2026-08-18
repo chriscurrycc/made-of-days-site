@@ -1,0 +1,131 @@
+:root {
+  --bg: #ffffff;
+  --fg: #1c1c1e;
+  --muted: #6c6c70;
+  --faint: #8e8e93;
+  --rule: #e5e5ea;
+  --link: #2a8892;
+  --card: #f7f7f9;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #000000;
+    --fg: #f2f2f7;
+    --muted: #9a9aa0;
+    --faint: #79797f;
+    --rule: #2c2c2e;
+    --link: #6bafb6;
+    --card: #131315;
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+        "Hiragino Sans GB", "Microsoft YaHei", Roboto, Helvetica, Arial, sans-serif;
+  padding: 0 22px;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--link); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+
+/* ---------- shared shell ---------- */
+.wrap { max-width: 660px; margin: 0 auto; }
+
+/* Small wordmark. Sub-pages only — on the home page the title IS the wordmark,
+   so printing it twice would be the same word in two sizes. */
+.bar {
+  max-width: 660px; margin: 0 auto;
+  padding: 26px 0;
+  display: flex; align-items: center; gap: 10px;
+}
+.bar img { width: 26px; height: 26px; border-radius: 22.4%; display: block; }
+.bar a {
+  color: var(--fg); text-decoration: none;
+  font-size: 15px; font-weight: 590; letter-spacing: -.01em;
+}
+
+/* ---------- home ---------- */
+/* Icon and wordmark are ONE object, on one line. Alone at the top of a page an
+   app icon reads as an empty band with a mark floating in it — and this icon's
+   own background is white, so on a white page only the glyph survives. Beside
+   the name it is what the App Store product page does: mark, name, subtitle. */
+.lockup {
+  display: flex; align-items: center; gap: 22px;
+  padding: 64px 0 30px;
+}
+.lockup .glyph {
+  width: 76px; height: 76px; border-radius: 22.4%; display: block; flex: none;
+  /* an inset hairline, because the light icon is white on a white page */
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.09), 0 1px 2px rgba(0,0,0,.06), 0 8px 22px rgba(0,0,0,.07);
+}
+@media (prefers-color-scheme: dark) {
+  .lockup .glyph { box-shadow: inset 0 0 0 1px rgba(255,255,255,.10); }
+}
+.lockup h1 {
+  font-size: 29px; line-height: 1.14; font-weight: 600;
+  letter-spacing: -.032em; margin: 0;
+}
+.tagline {
+  font-size: 17px; line-height: 1.4; color: var(--muted);
+  margin: 5px 0 0; letter-spacing: -.005em;
+}
+.home main > p {
+  font-size: 19px; line-height: 1.6; margin: 20px 0 0; max-width: 44ch;
+}
+.home .rule { height: 1px; background: var(--rule); border: 0; margin: 0 0 28px; }
+.status {
+  display: inline-block; margin-top: 30px;
+  padding: 7px 15px; border-radius: 999px;
+  background: var(--card); border: 1px solid var(--rule);
+  font-size: 14px; color: var(--muted); letter-spacing: .01em;
+}
+@media (max-width: 400px) {
+  .lockup { gap: 16px; padding-top: 48px; }
+  .lockup .glyph { width: 62px; height: 62px; }
+  .lockup h1 { font-size: 25px; }
+  .tagline { font-size: 16px; }
+  .home main > p { font-size: 18px; }
+}
+
+/* ---------- documents ---------- */
+.doc { padding-top: 6px; border-top: 1px solid var(--rule); }
+.doc h1 {
+  font-size: 33px; line-height: 1.2; letter-spacing: -.028em; font-weight: 600;
+  margin: 40px 0 6px;
+}
+.doc h2 {
+  font-size: 20px; line-height: 1.35; letter-spacing: -.015em; font-weight: 600;
+  margin: 42px 0 10px;
+}
+.doc p, .doc li { margin: 12px 0; }
+.doc ul { padding-left: 21px; }
+.updated { color: var(--faint); font-size: 15px; margin: 0 0 8px; }
+.lede {
+  margin: 26px 0; padding: 18px 20px;
+  background: var(--card); border: 1px solid var(--rule); border-radius: 14px;
+}
+.lede p { margin: 0; }
+.types { color: var(--muted); font-size: 15px; }
+
+/* ---------- footer ---------- */
+/* Carries only what the page above does not already say: the sibling pages.
+   The name is in the bar (or the title), so it is not repeated here. */
+footer {
+  max-width: 660px; margin: 0 auto; padding: 30px 0 60px;
+  color: var(--faint); font-size: 14px;
+}
+.doc footer { margin-top: 60px; padding-top: 26px; border-top: 1px solid var(--rule); }
+footer nav a { color: var(--muted); text-decoration: none; }
+footer nav a:hover { text-decoration: underline; }
+footer .sep { color: var(--faint); padding: 0 7px; }
+footer .legal { margin-top: 10px; }
+
+/* Negative tracking is a Latin adjustment. Applied to CJK it squeezes glyphs
+   that are already on a fixed em box, so the headings read cramped. */
+html[lang^="zh"] h1,
+html[lang^="zh"] h2,
+html[lang^="zh"] .tagline { letter-spacing: 0; }
