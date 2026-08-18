@@ -1,1 +1,11 @@
+# macOS
 .DS_Store
+
+# Local tool droppings — wrangler writes .wrangler/ into whatever directory it
+# is run from. Nothing in it belongs to this site.
+.wrangler/
+node_modules/
+
+# Never
+.env
+.env.*
