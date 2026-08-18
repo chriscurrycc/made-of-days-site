@@ -2,7 +2,7 @@
 """Local preview server. Sends no-store so edits always show up on reload —
 python -m http.server sends no Cache-Control at all, which lets browsers apply
 heuristic caching and quietly serve a stale stylesheet."""
-import http.server, socketserver, sys
+import http.server, os, socketserver, sys
 
 class H(http.server.SimpleHTTPRequestHandler):
     def end_headers(self):
@@ -15,6 +15,7 @@ class H(http.server.SimpleHTTPRequestHandler):
             return
         super().send_header(k, v)
 
+os.chdir(os.path.join(os.path.dirname(os.path.abspath(__file__)), "public"))
 port = int(sys.argv[1]) if len(sys.argv) > 1 else 8788
 socketserver.TCPServer.allow_reuse_address = True
 with socketserver.TCPServer(("127.0.0.1", port), H) as httpd:
