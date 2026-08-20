@@ -34,5 +34,6 @@ Push to `main`; Cloudflare Pages rebuilds. Settings that must stay as they are:
 | Build command | *(empty)* |
 | **Build output directory** | **`public`** |
 
-Bump the `?v=` on the `_style.css` link in all four pages when the stylesheet
+Bump the `?v=` on the `_style.css` link in all five pages (index, privacy,
+privacy/zh-hans, support, 404) when the stylesheet
 changes, so no one is served the old one.

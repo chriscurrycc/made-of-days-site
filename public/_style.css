@@ -73,22 +73,12 @@ a { color: var(--link); text-decoration-thickness: 1px; text-underline-offset: 2
   font-size: 17px; line-height: 1.4; color: var(--muted);
   margin: 5px 0 0; letter-spacing: -.005em;
 }
-.home main > p {
-  font-size: 19px; line-height: 1.6; margin: 20px 0 0; max-width: 44ch;
-}
 .home .rule { height: 1px; background: var(--rule); border: 0; margin: 0 0 28px; }
-.status {
-  display: inline-block; margin-top: 30px;
-  padding: 7px 15px; border-radius: 999px;
-  background: var(--card); border: 1px solid var(--rule);
-  font-size: 14px; color: var(--muted); letter-spacing: .01em;
-}
 @media (max-width: 400px) {
   .lockup { gap: 16px; padding-top: 48px; }
   .lockup .glyph { width: 62px; height: 62px; }
   .lockup h1 { font-size: 25px; }
   .tagline { font-size: 16px; }
-  .home main > p { font-size: 18px; }
 }
 
 /* ---------- documents ---------- */
@@ -129,3 +119,83 @@ footer .legal { margin-top: 10px; }
 html[lang^="zh"] h1,
 html[lang^="zh"] h2,
 html[lang^="zh"] .tagline { letter-spacing: 0; }
+
+/* ---------- landing page ---------- */
+/* Added when the home page stopped being one paragraph. Everything here reuses
+   the tokens above; the page has no colour of its own. The screenshots do the
+   explaining, so the type stays exactly as quiet as it was. */
+
+.intro { font-size: 19px; line-height: 1.6; margin: 22px 0 0; }
+
+/* Call to action. One button, and a line under it saying what happens next --
+   the button cannot say "in review" without becoming a sentence. */
+.cta { margin: 30px 0 0; }
+.cta a {
+  display: inline-block; text-decoration: none;
+  background: var(--link); color: #fff;
+  padding: 12px 22px; border-radius: 999px;
+  font-size: 16px; font-weight: 590; letter-spacing: -.01em;
+}
+.cta a:hover { filter: brightness(1.07); }
+.cta-note { font-size: 14px; color: var(--faint); margin: 12px 0 0; }
+
+/* Screenshots. Corners are rounded here rather than baked into the file, which
+   keeps the images opaque -- that is what makes 640px WebP cost 40 KB. */
+figure { margin: 0; }
+.shot {
+  display: block; width: 100%; height: auto;
+  border-radius: 7.6%/3.5%;          /* the device corner, as a ratio */
+  box-shadow: 0 1px 2px rgba(0,0,0,.06), 0 10px 30px rgba(0,0,0,.10);
+}
+@media (prefers-color-scheme: dark) {
+  .shot { box-shadow: 0 0 0 1px rgba(255,255,255,.08), 0 10px 30px rgba(0,0,0,.5); }
+}
+figcaption { font-size: 15px; line-height: 1.45; color: var(--muted); margin-top: 14px; }
+
+.hero-shot { margin: 46px auto 0; max-width: 300px; text-align: center; }
+
+.shots {
+  display: grid; gap: 34px 26px;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 40px 0 0;
+}
+/* Three phones in 660px is 195px each, which is still readable. Below that they
+   stack -- three 110px phones are a row of thumbnails, not screenshots. */
+@media (max-width: 560px) {
+  .shots { grid-template-columns: 1fr; max-width: 280px; margin-left: auto; margin-right: auto; }
+}
+
+.story { margin-top: 56px; }
+.story p { font-size: 17px; line-height: 1.7; margin: 16px 0 0; max-width: 62ch; }
+.story h2, .facts h2 {
+  font-size: 15px; font-weight: 590; letter-spacing: .04em; text-transform: uppercase;
+  color: var(--faint); margin: 0 0 4px;
+}
+
+.facts { margin-top: 52px; }
+.facts ul { margin: 0; padding: 0; list-style: none; }
+.facts li {
+  font-size: 16px; line-height: 1.55; color: var(--fg);
+  padding: 13px 0; border-top: 1px solid var(--rule);
+}
+.facts li:last-child { border-bottom: 1px solid var(--rule); }
+
+.tail { margin-top: 52px; }
+.sample { font-size: 13px; color: var(--faint); margin: 26px 0 0; }
+
+@media (max-width: 400px) {
+  .intro { font-size: 18px; }
+  .story p { font-size: 16px; }
+}
+
+/* The one image that fits this medium natively: a 660px column is landscape,
+   and so is the full-screen chart. The phone shots have to sit at 300px in the
+   middle of the page; this one runs the whole width. */
+.river { margin: 46px 0 0; }
+.river img {
+  display: block; width: 100%; height: auto; border-radius: 12px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.06), 0 10px 30px rgba(0,0,0,.10);
+}
+@media (prefers-color-scheme: dark) {
+  .river img { box-shadow: 0 0 0 1px rgba(255,255,255,.08), 0 10px 30px rgba(0,0,0,.5); }
+}
