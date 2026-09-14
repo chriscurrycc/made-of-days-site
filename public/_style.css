@@ -39,7 +39,7 @@ a { color: var(--link); text-decoration-thickness: 1px; text-underline-offset: 2
    so printing it twice would be the same word in two sizes. */
 .bar {
   max-width: 660px; margin: 0 auto;
-  padding: 26px 0;
+  padding: 16px 0;
   display: flex; align-items: center; gap: 10px;
 }
 .bar img { width: 26px; height: 26px; border-radius: 22.4%; display: block; }
@@ -47,6 +47,41 @@ a { color: var(--link); text-decoration-thickness: 1px; text-underline-offset: 2
   color: var(--fg); text-decoration: none;
   font-size: 15px; font-weight: 590; letter-spacing: -.01em;
 }
+/* Icon and name are one link, the way they are one object. */
+.bar .brand { display: flex; align-items: center; gap: 10px; }
+
+/* The language switch: at the right end of the top row (the lockup on the
+   home page, the bar on the others), where a product page puts its one action. A globe and the language's own name, no outline, so it
+   doesn't read as a second download button. The footer carries it too. */
+.bar a.lang, .lockup .lang {
+  margin-left: auto; align-self: center; flex: none;
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 14px; font-weight: 500; letter-spacing: 0; line-height: 1.4;
+  color: var(--muted); text-decoration: none; padding: 6px 0;
+}
+.bar a.lang:hover, .lockup .lang:hover { color: var(--fg); }
+/* On a phone the name costs width the header doesn't have, so the link becomes
+   a mark of the language it goes to, drawn like a keyboard key: 中 on English
+   pages, EN on Chinese ones. */
+.lang-mark { display: none; }
+@media (max-width: 480px) {
+  .lang .globe, .lang .lang-name { display: none; }
+  .lang .lang-mark {
+    display: inline-grid; place-items: center;
+    width: 28px; height: 28px; box-sizing: border-box;
+    border: 1.5px solid currentColor; border-radius: 8px;
+    font-size: 12px; font-weight: 650; letter-spacing: 0; line-height: 1;
+  }
+  .lang[lang="zh-Hans"] .lang-mark { font-size: 14px; font-weight: 600; }
+  .bar a.lang, .lockup .lang { padding: 0; }
+}
+/* On the home page it hangs at the top right, a little below the top edge, and
+   out of the flex row: in the row it reserved a column the full height of the
+   lockup, so the tagline wrapped with empty space still beside it. Out of flow,
+   only the name's line has to clear it, and the name is short. */
+.lockup .lang { position: absolute; right: 0; top: calc(var(--lockup-top) + 4px); }
+footer .lang-link { white-space: nowrap; }
+footer .lang-link .globe { vertical-align: -2px; margin-right: 4px; }
 
 /* ---------- home ---------- */
 /* Icon and wordmark are ONE object, on one line. Alone at the top of a page an
@@ -54,8 +89,9 @@ a { color: var(--link); text-decoration-thickness: 1px; text-underline-offset: 2
    own background is white, so on a white page only the glyph survives. Beside
    the name it is what the App Store product page does: mark, name, subtitle. */
 .lockup {
+  --lockup-top: 44px;
   display: flex; align-items: center; gap: 22px;
-  padding: 64px 0 30px;
+  padding: var(--lockup-top) 0 28px; position: relative;
 }
 .lockup .glyph {
   width: 76px; height: 76px; border-radius: 22.4%; display: block; flex: none;
@@ -65,17 +101,22 @@ a { color: var(--link); text-decoration-thickness: 1px; text-underline-offset: 2
 @media (prefers-color-scheme: dark) {
   .lockup .glyph { box-shadow: inset 0 0 0 1px rgba(255,255,255,.10); }
 }
+.lockup > div { min-width: 0; }
 .lockup h1 {
+  white-space: nowrap;
   font-size: 29px; line-height: 1.14; font-weight: 600;
   letter-spacing: -.032em; margin: 0;
 }
 .tagline {
   font-size: 17px; line-height: 1.4; color: var(--muted);
   margin: 5px 0 0; letter-spacing: -.005em;
+  text-wrap: pretty;    /* fill the line, but never leave 是。 alone on the last one */
 }
 .home .rule { height: 1px; background: var(--rule); border: 0; margin: 0 0 28px; }
-@media (max-width: 400px) {
-  .lockup { gap: 16px; padding-top: 48px; }
+/* 480, not 400: at the full 76px icon and 29px name, the switch at the row's
+   end would push "Made of Days" onto two lines on every phone. */
+@media (max-width: 480px) {
+  .lockup { gap: 14px; --lockup-top: 36px; }
   .lockup .glyph { width: 62px; height: 62px; }
   .lockup h1 { font-size: 25px; }
   .tagline { font-size: 16px; }
@@ -84,11 +125,11 @@ a { color: var(--link); text-decoration-thickness: 1px; text-underline-offset: 2
 /* ---------- documents ---------- */
 .doc { padding-top: 6px; border-top: 1px solid var(--rule); }
 .doc h1 {
-  font-size: 33px; line-height: 1.2; letter-spacing: -.028em; font-weight: 600;
-  margin: 40px 0 6px;
+  font-size: 26px; line-height: 1.25; letter-spacing: -.022em; font-weight: 600;
+  margin: 28px 0 4px;
 }
 .doc h2 {
-  font-size: 20px; line-height: 1.35; letter-spacing: -.015em; font-weight: 600;
+  font-size: 19px; line-height: 1.35; letter-spacing: -.015em; font-weight: 600;
   margin: 42px 0 10px;
 }
 .doc p, .doc li { margin: 12px 0; }
@@ -119,6 +160,11 @@ footer .legal { margin-top: 10px; }
 html[lang^="zh"] h1,
 html[lang^="zh"] h2,
 html[lang^="zh"] .tagline { letter-spacing: 0; }
+/* The small section labels are uppercased for English. In Chinese that only
+   reaches the Latin words, and "Pro" turns into "PRO". */
+html[lang^="zh"] .story h2,
+html[lang^="zh"] .facts h2,
+html[lang^="zh"] .plans h2 { text-transform: none; }
 
 /* ---------- landing page ---------- */
 /* Added when the home page stopped being one paragraph. Everything here reuses
@@ -150,7 +196,7 @@ figure { margin: 0; }
 @media (prefers-color-scheme: dark) {
   .shot { box-shadow: 0 0 0 1px rgba(255,255,255,.08), 0 10px 30px rgba(0,0,0,.5); }
 }
-figcaption { font-size: 15px; line-height: 1.45; color: var(--muted); margin-top: 14px; }
+figcaption { font-size: 15px; line-height: 1.45; color: var(--muted); margin-top: 14px; text-align: center; }
 
 .hero-shot { margin: 46px auto 0; max-width: 300px; text-align: center; }
 
@@ -159,15 +205,43 @@ figcaption { font-size: 15px; line-height: 1.45; color: var(--muted); margin-top
   grid-template-columns: repeat(3, 1fr);
   margin: 40px 0 0;
 }
-/* Three phones in 660px is 195px each, which is still readable. Below that they
-   stack -- three 110px phones are a row of thumbnails, not screenshots. */
+/* Six of the ten store cards, three across: 195px each in 660px, and the
+   headline baked into each card is still legible. Left out: 1 and 2 (one
+   landscape phone split in two; the full-width river is that chart), 5 (the
+   radar, already the hero shot) and 8 (a measure's trend, one level deeper
+   than this page goes; 7 already shows the numbers). Below that, six stacked cards would be a page
+   of their own, so the row scrolls sideways, the way the App Store shows
+   screenshots on a phone. Each card stops dead centre (snap-align: center) and
+   one card at a time (snap-stop: always); the side padding is exactly what lets
+   the first and last card reach the centre too, and the neighbours peeking in
+   at both edges are what say the row goes on. The row bleeds to the screen
+   edge, and the vertical padding keeps the shadows from being clipped. */
 @media (max-width: 560px) {
-  .shots { grid-template-columns: 1fr; max-width: 280px; margin-left: auto; margin-right: auto; }
+  .shots {
+    --shot-w: 66vw;
+    grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: var(--shot-w);
+    gap: 14px; overflow-x: auto; overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    margin: 24px -22px 0; padding: 16px calc((100vw - var(--shot-w)) / 2) 32px;
+    scrollbar-width: none;
+  }
+  .shots::-webkit-scrollbar { display: none; }
+  .shots > * { scroll-snap-align: center; scroll-snap-stop: always; }
+  /* A scroll container clips at its padding edge, and a shadow cut off there
+     ends in a hard line. So on a phone the shadow is shorter (it reaches
+     6 + 18 = 24px below a card), the padding is taller than that (32px), and
+     the note pulls itself back up into the empty part instead. */
+  .shots .shot { box-shadow: 0 1px 2px rgba(0,0,0,.06), 0 6px 18px rgba(0,0,0,.09); }
+  .shots + .sample { margin-top: -10px; }
+}
+@media (max-width: 560px) and (prefers-color-scheme: dark) {
+  .shots .shot { box-shadow: 0 0 0 1px rgba(255,255,255,.08), 0 6px 18px rgba(0,0,0,.45); }
 }
 
-.story { margin-top: 56px; }
+.story { margin-top: 56px; scroll-margin-top: 28px; }   /* the app links to #story */
 .story p { font-size: 17px; line-height: 1.7; margin: 16px 0 0; max-width: 62ch; }
-.story h2, .facts h2 {
+.story .story-source { font-size: 14px; color: var(--faint); margin-top: 20px; }
+.story h2, .facts h2, .plans h2 {
   font-size: 15px; font-weight: 590; letter-spacing: .04em; text-transform: uppercase;
   color: var(--faint); margin: 0 0 4px;
 }
@@ -179,6 +253,30 @@ figcaption { font-size: 15px; line-height: 1.45; color: var(--muted); margin-top
   padding: 13px 0; border-top: 1px solid var(--rule);
 }
 .facts li:last-child { border-bottom: 1px solid var(--rule); }
+
+/* Free and Pro side by side, the way Apple lays out iCloud+ plans: same card,
+   same list, so the difference is only what is in them. Prices are left to the
+   App Store, which shows them in the reader's own currency. */
+.plans { margin-top: 52px; }
+.plan-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
+.plan {
+  background: var(--card); border: 1px solid var(--rule); border-radius: 14px;
+  padding: 18px 20px 16px;
+}
+.plan h3 { font-size: 17px; font-weight: 600; letter-spacing: -.01em; margin: 0 0 8px; }
+.plan.pro h3 { color: var(--link); }
+.plan ul { margin: 0; padding: 0; list-style: none; }
+.plan li { font-size: 15px; line-height: 1.45; padding: 5px 0 5px 20px; position: relative; }
+.plan li::before {
+  content: ""; position: absolute; left: 2px; top: .95em;
+  width: 6px; height: 6px; border-radius: 50%; background: var(--faint);
+}
+.plan.pro li::before { background: var(--link); }
+.plan-terms { font-size: 14px; color: var(--muted); margin: 10px 0 0; }
+.plan-note, .facts .note { font-size: 14px; color: var(--faint); margin: 12px 0 0; }
+@media (max-width: 560px) {
+  .plan-grid { grid-template-columns: 1fr; }
+}
 
 .tail { margin-top: 52px; }
 .sample { font-size: 13px; color: var(--faint); margin: 26px 0 0; }

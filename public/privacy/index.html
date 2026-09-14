@@ -4,20 +4,22 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy Policy — Made of Days</title>
+<link rel="alternate" hreflang="en" href="https://madeofdays.pages.dev/privacy/">
+<link rel="alternate" hreflang="zh-Hans" href="https://madeofdays.pages.dev/privacy/zh-hans/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="stylesheet" href="/_style.css?v=4">
+<link rel="stylesheet" href="/_style.css?v=5">
 </head>
 <body>
-<div class="bar"><picture><source srcset="/icon-dark.svg" media="(prefers-color-scheme: dark)"><img src="/icon-light.svg" alt="" width="26" height="26"></picture><a href="/">Made of Days</a></div>
+<div class="bar"><a class="brand" href="/"><picture><source srcset="/icon-dark.svg" media="(prefers-color-scheme: dark)"><img src="/icon-light.svg" alt="" width="26" height="26"></picture>Made of Days</a><a class="lang" href="/privacy/zh-hans/" lang="zh-Hans" hreflang="zh-Hans" aria-label="简体中文"><svg class="globe" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><circle cx="8" cy="8" r="6.6" fill="none" stroke="currentColor" stroke-width="1.2"/><ellipse cx="8" cy="8" rx="2.9" ry="6.6" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M1.6 8h12.8M2.6 4.7h10.8M2.6 11.3h10.8" fill="none" stroke="currentColor" stroke-width="1.2"/></svg><span class="lang-name">简体中文</span><span class="lang-mark" aria-hidden="true">中</span></a></div>
 <main class="wrap doc">
 <h1>Privacy Policy</h1>
-<p class="updated">Last updated: August 18, 2026 · <a href="/privacy/zh-hans/">简体中文</a></p>
+<p class="updated">Last updated: September 14, 2026</p>
 
 <div class="lede">
 <p><strong>Made of Days has no servers and no account.</strong> Everything you record stays on
-your device. If you turn on iCloud sync, your data is stored in your own private iCloud
+your device. With Made of Days Pro, it also syncs through your own private iCloud
 account, which only you can read. Nothing is ever sent to us, and there are no analytics,
 no advertising, and no third-party SDKs.</p>
 </div>
@@ -26,7 +28,7 @@ no advertising, and no third-party SDKs.</p>
 <p>Made of Days stores the following on your device:</p>
 <ul>
 <li>The activities and dimensions you create, including their names, icons and colors</li>
-<li>Your check-ins: the date, the time, and the duration where applicable</li>
+<li>Your check-ins: the date, end time and duration, plus any custom measurements you define (such as distance or mood)</li>
 <li>Journal text you write, and photos you attach</li>
 <li>Reminders you set</li>
 <li>Your settings and preferences</li>
@@ -35,13 +37,18 @@ no advertising, and no third-party SDKs.</p>
 <h2>Apple Health</h2>
 <p>If you choose to use automatic check-ins, Made of Days reads the following from Apple
 Health, and only the types belonging to the activities you set up:</p>
-<p class="types">Steps · Walking + Running Distance · Flights Climbed · Active Energy ·
-Exercise Minutes · Stand Hours · Sleep · Mindful Minutes · Water · Caffeine ·
+<p class="types">Steps · Walking + Running Distance · Swimming Distance · Cycling Distance ·
+Flights Climbed · Active Energy · Heart Rate · Exercise Minutes · Stand Hours · Sleep · Mindful Minutes · Water · Caffeine ·
 Body Mass · Blood Pressure · Blood Glucose · Workouts</p>
 <ul>
 <li><strong>Read only.</strong> The app never writes anything to Apple Health.</li>
-<li>Health data is read on your device, used only to decide whether an activity counts as
-checked in, and never leaves your device.</li>
+<li>Health data is read on your device and used for two things: deciding whether an
+activity counts as checked in, and showing the readings that come with it, such as a
+workout's duration, distance or heart rate.</li>
+<li><strong>Those readings stay on your device.</strong> They are left out of iCloud sync and
+device backups, and are never sent anywhere. With iCloud sync on, what syncs for an
+automatic check-in is the check-in itself: which activity, and when. Numbers you enter
+yourself are your own records, and sync like the rest.</li>
 <li><strong>Health data is never used for advertising, marketing, or similar services, and is
 never shared with or sold to any third party.</strong></li>
 <li>You can revoke access at any time in Settings › Privacy &amp; Security › Health.</li>
@@ -54,8 +61,9 @@ search your journal by something written in a picture. Photos and the recognized
 never uploaded to us.</p>
 
 <h2>iCloud sync</h2>
-<p>If you turn on iCloud sync, your records are synced through <strong>your own private iCloud
-database</strong>, using Apple's CloudKit. This data is stored in your personal iCloud account
+<p>iCloud sync is part of Made of Days Pro. When it is on, your records are synced through
+<strong>your own private iCloud database</strong>, using Apple's CloudKit. Readings from Apple
+Health are not among them (see above). This data is stored in your personal iCloud account
 and counts toward your iCloud storage. We have no access to it, and no ability to read it.
 Turning sync off stops further syncing; data already in your iCloud account can be removed
 from Settings › [your name] › iCloud.</p>
@@ -73,6 +81,8 @@ them.</p>
 <h2>Purchases</h2>
 <p>Purchases and subscriptions are handled entirely by Apple. We never see your payment
 details. Apple provides us with anonymous, aggregated sales reports.</p>
+<p>Whether you have Made of Days Pro is remembered on your device and in your iCloud Keychain,
+so the app on a new iPhone knows before the App Store answers.</p>
 
 <h2>What we do not do</h2>
 <ul>
@@ -80,7 +90,7 @@ details. Apple provides us with anonymous, aggregated sales reports.</p>
 <li>No analytics or tracking of any kind</li>
 <li>No advertising, and no advertising identifiers</li>
 <li>No third-party SDKs</li>
-<li>No selling or sharing of your data, because we never have it</li>
+<li>No selling or sharing of your data; it never reaches us</li>
 </ul>
 
 <h2>Children</h2>
@@ -100,7 +110,7 @@ at this address.</p>
 <p>Questions about this policy: <a href="mailto:imtianzhi@icloud.com">imtianzhi@icloud.com</a></p>
 
 <footer>
-  <nav><a href="/privacy/zh-hans/">简体中文</a><span class="sep">·</span><a href="/support/">Support</a></nav>
+  <nav><a href="/support/">Support</a><span class="sep">·</span><a class="lang-link" href="/privacy/zh-hans/" lang="zh-Hans" hreflang="zh-Hans"><svg class="globe" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><circle cx="8" cy="8" r="6.6" fill="none" stroke="currentColor" stroke-width="1.2"/><ellipse cx="8" cy="8" rx="2.9" ry="6.6" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M1.6 8h12.8M2.6 4.7h10.8M2.6 11.3h10.8" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>简体中文</a></nav>
   <div class="legal">© 2026 Zhi Tian</div>
 </footer>
 </main>

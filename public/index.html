@@ -13,10 +13,13 @@
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="https://madeofdays.pages.dev/">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="apple-itunes-app" content="app-id=6802513787">
+<link rel="alternate" hreflang="en" href="https://madeofdays.pages.dev/">
+<link rel="alternate" hreflang="zh-Hans" href="https://madeofdays.pages.dev/zh-hans/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="stylesheet" href="/_style.css?v=4">
+<link rel="stylesheet" href="/_style.css?v=5">
 </head>
 <body class="home">
 <main class="wrap">
@@ -29,25 +32,25 @@
       <h1>Made of Days</h1>
       <p class="tagline">A life is made of days. This one keeps them.</p>
     </div>
+    <a class="lang" href="/zh-hans/" lang="zh-Hans" hreflang="zh-Hans" aria-label="简体中文"><svg class="globe" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><circle cx="8" cy="8" r="6.6" fill="none" stroke="currentColor" stroke-width="1.2"/><ellipse cx="8" cy="8" rx="2.9" ry="6.6" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M1.6 8h12.8M2.6 4.7h10.8M2.6 11.3h10.8" fill="none" stroke="currentColor" stroke-width="1.2"/></svg><span class="lang-name">简体中文</span><span class="lang-mark" aria-hidden="true">中</span></a>
   </div>
 
   <hr class="rule">
 
-  <p class="intro">You check in on the small things you actually did — slept
-  early, went for a run, cooked, spent an evening with your family. The
-  dimensions of your life draw themselves from that.</p>
+  <p class="intro">Health, family, growth: every dimension of your life is made
+  of small things. Check in on the ones you did today, and over time you'll see
+  where your days really go.</p>
 
-  <p class="cta"><a href="mailto:imtianzhi@icloud.com?subject=Made%20of%20Days%20TestFlight">Ask for the TestFlight</a></p>
-  <p class="cta-note">It's in review right now. I'll send the link the moment it opens.</p>
+  <p class="cta"><a href="https://apps.apple.com/app/id6802513787">Download on the App Store</a></p>
+  <p class="cta-note">Free for iPhone with iOS&nbsp;17 or later. Pro is an optional upgrade.</p>
 
   <figure class="hero-shot">
     <img class="shot" src="/shots/stats.webp" width="640" height="1391"
          alt="A streamgraph of six coloured dimensions over three years, above a radar chart comparing the last 90 days with the period before it.">
-    <figcaption>Every band is a dimension. Every dimension is only the
-    activities you put under it.</figcaption>
+    <figcaption>See the balance between your dimensions, and how it moves over time.</figcaption>
   </figure>
 
-  <section class="story">
+  <section class="story" id="story">
     <h2>Where it came from</h2>
 
     <p>A few years ago I saw someone render his whole life as a streamgraph.
@@ -73,47 +76,70 @@
   </section>
 
   <figure class="river">
-    <img src="/shots/river.webp" width="1320" height="647"
-         alt="Three years of dimension share drawn as a streamgraph: growth dominating early, creating taking over the middle, then family, finance and social spreading across the last year.">
-    <figcaption>Nobody drew this. It is only where the check-ins fell.</figcaption>
+    <img src="/shots/river.webp" width="1320" height="580"
+         alt="Dimension share drawn as a full-screen streamgraph: growth dominating early, creating taking over the middle, then family, finance and social spreading across the last year.">
+    <figcaption>Trace how your focus shifts over the years.</figcaption>
   </figure>
 
   <div class="shots">
-    <figure>
-      <img class="shot" src="/shots/today.webp" width="640" height="1391"
-           alt="The Today screen: a week of dimension banners, a row of dimension rings, and cards for each activity.">
-      <figcaption>Check in on what you actually did.</figcaption>
-    </figure>
-    <figure>
-      <img class="shot" src="/shots/calendar.webp" width="640" height="1391"
-           alt="A month calendar with one dimension drilled into: circled dates and coloured bars spanning runs of days.">
-      <figcaption>See which days held, and which didn't.</figcaption>
-    </figure>
-    <figure>
-      <img class="shot" src="/shots/contribution.webp" width="640" height="1391"
-           alt="A ring chart breaking one dimension into its member activities, above a streamgraph of how that split moved over time.">
-      <figcaption>And which activities carried each one.</figcaption>
-    </figure>
+    <img class="shot" src="/shots/card-check-in.webp" width="640" height="1391" loading="lazy"
+         alt="All you do is check in: the Today screen, with the Running card lifted out.">
+    <img class="shot" src="/shots/card-calendar.webp" width="640" height="1391" loading="lazy"
+         alt="Your whole life on one calendar: a month with one dimension drilled into.">
+    <img class="shot" src="/shots/card-time.webp" width="640" height="1391" loading="lazy"
+         alt="Where the time actually went: activities shared out by duration.">
+    <img class="shot" src="/shots/card-numbers.webp" width="640" height="1391" loading="lazy"
+         alt="Distance, mood or any number: an activity's tiles for duration, distance and energy.">
+    <img class="shot" src="/shots/card-journal.webp" width="640" height="1391" loading="lazy"
+         alt="A journal for every activity: notes and a photo under Reading.">
+    <img class="shot" src="/shots/card-health.webp" width="640" height="1391" loading="lazy"
+         alt="Import from Apple Health: starter activities with their rules set.">
   </div>
 
   <p class="sample">Screenshots show sample data.</p>
 
   <section class="facts">
-    <h2>What's true about it</h2>
+    <h2>Private by design</h2>
     <ul>
-      <li>No account and no server. Everything you record stays on your device.</li>
-      <li>Syncs through your own private iCloud, if you turn it on. Nobody else can read it.</li>
-      <li>Apple Health can check you in automatically — sleep, workouts, steps — if you set an activity up that way.</li>
-      <li>Nine languages. iPhone, iOS&nbsp;17 or later.</li>
+      <li>No account, no sign-up, no ads, no analytics.</li>
+      <li>Your records stay on your iPhone and never pass through a server of ours.</li>
+      <li>With Pro, sync runs through your own private iCloud. Nobody else can read it.</li>
+      <li>Readings from Apple Health stay on your iPhone, even with sync on.</li>
     </ul>
+    <p class="note">The <a href="/privacy/">privacy policy</a> has the details.</p>
   </section>
 
-  <p class="cta tail"><a href="mailto:imtianzhi@icloud.com?subject=Made%20of%20Days%20TestFlight">Ask for the TestFlight</a></p>
-  <p class="cta-note">One person made this. Write anything you like — I read every message.</p>
+  <section class="plans">
+    <h2>Free, and Pro</h2>
+    <div class="plan-grid">
+      <div class="plan">
+        <h3>Free</h3>
+        <ul>
+          <li>Up to 8 activities and 3 dimensions</li>
+          <li>Every chart</li>
+          <li>Apple Health check-ins</li>
+          <li>The journal</li>
+        </ul>
+      </div>
+      <div class="plan pro">
+        <h3>Made of Days Pro</h3>
+        <ul>
+          <li>Sync across your devices through your own private iCloud</li>
+          <li>Unlimited activities</li>
+          <li>Up to 6 dimensions</li>
+          <li>Family Sharing with up to 5 family members</li>
+        </ul>
+        <p class="plan-terms">A yearly subscription with a 7-day free trial, or a one-time purchase.</p>
+      </div>
+    </div>
+  </section>
+
+  <p class="cta tail"><a href="https://apps.apple.com/app/id6802513787">Download on the App Store</a></p>
+  <p class="cta-note">One person made this. Write to <a href="mailto:imtianzhi@icloud.com">imtianzhi@icloud.com</a> about anything.</p>
 </main>
 <footer>
   <nav>
-    <a href="/privacy/">Privacy</a><span class="sep">·</span><a href="/privacy/zh-hans/">隐私政策</a><span class="sep">·</span><a href="/support/">Support</a>
+    <a href="/privacy/">Privacy</a><span class="sep">·</span><a href="/support/">Support</a><span class="sep">·</span><a class="lang-link" href="/zh-hans/" lang="zh-Hans" hreflang="zh-Hans"><svg class="globe" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><circle cx="8" cy="8" r="6.6" fill="none" stroke="currentColor" stroke-width="1.2"/><ellipse cx="8" cy="8" rx="2.9" ry="6.6" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M1.6 8h12.8M2.6 4.7h10.8M2.6 11.3h10.8" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>简体中文</a>
   </nav>
   <div class="legal">© 2026 Zhi Tian</div>
 </footer>
