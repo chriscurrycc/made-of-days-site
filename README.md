@@ -27,7 +27,18 @@ stylesheet — that cost an afternoon once.
 
 ## Deploy
 
-Push to `main`; Cloudflare Pages rebuilds. Settings that must stay as they are:
+The site is live in two places, from the same `public/`:
+
+| | Where | How |
+|---|---|---|
+| Overseas | https://madeofdays.pages.dev | push `main`, Cloudflare Pages builds |
+| Mainland China | https://madeofdays.xzchris.com | `bash ops/deploy-cn.sh` |
+
+**Every change needs both.** Nothing watches git on the China side; that copy is
+pushed by a local script, which also injects the ICP filing number into the
+footer at deploy time — which is why the HTML here doesn't carry it.
+
+Cloudflare Pages settings that must stay as they are:
 
 | | |
 |---|---|

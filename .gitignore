@@ -9,3 +9,6 @@ node_modules/
 # Never
 .env
 .env.*
+
+# Deploy scripts and notes that stay local
+/ops/
